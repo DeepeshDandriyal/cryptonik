@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CryptoContext } from "../CryptoContext";
 
 const Header = () => {
   const useStyles = makeStyles()(() => {
@@ -20,10 +22,13 @@ const Header = () => {
         color: "gold",
         fontFamily: "Montserrat",
         cursor: "pointer",
+        fontWeight: "bold",
       },
     };
   });
   const { classes } = useStyles();
+
+  const { currentCurrency, setCurrency, setSymbol } = useContext(CryptoContext);
 
   const darkTheme = createTheme({
     palette: {
@@ -37,12 +42,24 @@ const Header = () => {
         <Container>
           <Toolbar>
             <Link to={"/"} style={{ flex: 1 }}>
-              <Typography className={classes.title}>Cryptonik</Typography>
+              <Typography className={classes.title} variant="h6">
+                Cryptonik
+              </Typography>
             </Link>
 
             <Select
               variant="outlined"
-              style={{ width: 100, height: 40, marginLeft: 15 }}
+              style={{
+                width: 100,
+                height: 40,
+                marginRight: 15,
+              }}
+              value={currentCurrency}
+              onChange={(e) => {
+                setCurrency(e.target.value);
+                if (currentCurrency === "INR") setSymbol("₹");
+                else setSymbol("$");
+              }}
             >
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
