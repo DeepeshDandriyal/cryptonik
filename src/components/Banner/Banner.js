@@ -1,6 +1,7 @@
 import { Container, Typography } from "@mui/material";
 import React from "react";
 import { makeStyles } from "tss-react/mui";
+import Carousel from "./Carousel";
 
 const Banner = () => {
   const useStyles = makeStyles()(() => {
@@ -50,6 +51,7 @@ const Banner = () => {
             Get All the Information Regarding your favourite Crypto Currency
           </Typography>
         </div>
+        <Carousel />
       </Container>
     </div>
   );
