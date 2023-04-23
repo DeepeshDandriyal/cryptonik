@@ -28,8 +28,10 @@ const Header = () => {
   });
   const { classes } = useStyles();
 
-  const { currentCurrency, setCurrency, setSymbol } = useContext(CryptoContext);
-
+  const { currentCurrency, setCurrency, setSymbol, currentSymbol } =
+    useContext(CryptoContext);
+  console.log(currentCurrency);
+  console.log(currentSymbol);
   const darkTheme = createTheme({
     palette: {
       mode: "dark",
@@ -57,8 +59,12 @@ const Header = () => {
               value={currentCurrency}
               onChange={(e) => {
                 setCurrency(e.target.value);
-                if (currentCurrency === "INR") setSymbol("₹");
-                else setSymbol("$");
+                // fault here rectify later
+                if (currentCurrency === "USD") {
+                  setSymbol("₹");
+                } else {
+                  setSymbol("$");
+                }
               }}
             >
               <MenuItem value={"USD"}>USD</MenuItem>
