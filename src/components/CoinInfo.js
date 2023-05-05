@@ -17,6 +17,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { chartDays } from "../config/data";
+import SelectButton from "./selectButton";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -94,14 +96,40 @@ const CoinInfo = ({ coin }) => {
                 datasets: [
                   {
                     data: historicalData.map((coin) => coin[1]),
+                    label: `Price (Past ${days} Days) in ${currentCurrency}`,
+                    borderColor: "#EEBC1D",
                   },
                 ],
               }}
+              options={{
+                elements: {
+                  point: {
+                    radius: 1,
+                  },
+                },
+              }}
             />
+            {/* buttons */}
+            <div
+              style={{
+                display: "flex",
+                marginTop: 20,
+                justifyContent: "space-around",
+                width: "100%",
+              }}
+            >
+              {chartDays.map((day) => (
+                <SelectButton
+                  key={day.value}
+                  onClick={() => setDays(day.value)}
+                  selected={day.value === days}
+                >
+                  {day.label}
+                </SelectButton>
+              ))}
+            </div>
           </>
         )}
-
-        {/* buttons */}
       </div>
     </ThemeProvider>
   );
