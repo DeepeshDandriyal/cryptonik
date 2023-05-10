@@ -6,7 +6,6 @@ import {
   Select,
   ThemeProvider,
   Toolbar,
-  Typography,
   createTheme,
 } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
@@ -18,14 +17,9 @@ import logo from "../assets/Brand-logo4.png";
 const Header = () => {
   const useStyles = makeStyles()(() => {
     return {
-      title: {
-        flex: 1,
-        color: "gold",
-        fontFamily: "Montserrat",
-        cursor: "pointer",
-        fontWeight: "bold",
-      },
       img: {
+        flex: 1,
+        cursor: "pointer",
         width: 150,
         height: 50,
         marginTop: 7,
@@ -50,9 +44,7 @@ const Header = () => {
         <Container>
           <Toolbar>
             <Link to={"/"} style={{ flex: 1 }}>
-              <Typography className={classes.title} variant="h6">
-                <img className={classes.img} src={logo} alt="Cryptonik" />
-              </Typography>
+              <img className={classes.img} src={logo} alt="Cryptonik" />
             </Link>
 
             <Select
