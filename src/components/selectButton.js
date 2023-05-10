@@ -5,18 +5,18 @@ const SelectButton = ({ children, selected, onClick }) => {
   const useStyles = makeStyles()((theme) => {
     return {
       button: {
-        border: "1px solid gold",
+        border: "1px solid #B2A4FF",
         borderRadius: 5,
         padding: 10,
         paddingLeft: 20,
         paddingRight: 20,
         fontFamily: "Montserrat",
         cursor: "pointer",
-        backgroundColor: selected ? "gold" : "",
+        backgroundColor: selected ? "#B2A4FF" : "",
         color: selected ? "black" : "",
         fontWeight: selected ? 700 : 500,
         "&:hover": {
-          backgroundColor: "gold",
+          backgroundColor: "#B2A4FF",
           color: "black",
         },
         width: "22%",

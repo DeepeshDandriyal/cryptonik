@@ -97,7 +97,7 @@ const CoinInfo = ({ coin }) => {
                   {
                     data: historicalData.map((coin) => coin[1]),
                     label: `Price (Past ${days} Days) in ${currentCurrency}`,
-                    borderColor: "#EEBC1D",
+                    borderColor: "#B2A4FF",
                   },
                 ],
               }}

@@ -13,6 +13,7 @@ import { makeStyles } from "tss-react/mui";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CryptoContext } from "../CryptoContext";
+import logo from "../assets/Brand-logo4.png";
 
 const Header = () => {
   const useStyles = makeStyles()(() => {
@@ -23,6 +24,11 @@ const Header = () => {
         fontFamily: "Montserrat",
         cursor: "pointer",
         fontWeight: "bold",
+      },
+      img: {
+        width: 150,
+        height: 50,
+        marginTop: 7,
       },
     };
   });
@@ -45,7 +51,7 @@ const Header = () => {
           <Toolbar>
             <Link to={"/"} style={{ flex: 1 }}>
               <Typography className={classes.title} variant="h6">
-                Cryptonik
+                <img className={classes.img} src={logo} alt="Cryptonik" />
               </Typography>
             </Link>
 
